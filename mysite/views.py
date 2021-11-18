@@ -2,15 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 def home(request):
-  dict={'name':'lekhraj','surname':'maholia'}
-  return render(request,'index.html',dict)
-
-def about(request):
-  return HttpResponse('This is about page.')
-
-
-def spellchecker(request):
-  return HttpResponse('hello')
+  return render(request,'index.html')
 
 def analyze(request):
   djtext=request.GET.get('text','default')
@@ -19,10 +11,6 @@ def analyze(request):
   extraspaceremover=request.GET.get('extraspaceremover','off')
   newlineremover=request.GET.get('newlineremover','off')
   purpose1=''
- # charcount=request.GET.get('charcount','off')
-  
-  
-  
   
   # remove punctuations marks
   if removepunc=='on':
@@ -62,9 +50,7 @@ def analyze(request):
   
    #count chars
     
-#  if charcount=="on":
-#    analyzed_text=djtext.count('')-1
-#    params={'purpose':'count character','analyzed':analyzed_text}
+    
     
   
   #remove new line char
@@ -77,15 +63,14 @@ def analyze(request):
     purpose1+=params['purpose']+'|'
    
   
- 
   
+ 
+
    
-  if (capstext!="on" and removepunc!="on" and newlineremover!="on" and extraspaceremover!="on"):
+  if (capstext!="on" and removepunc!="on" and newlineremover!="on" and extraspaceremover!="on" ):
       return HttpResponse("please Select any switch.")
+  
+  
   params['purpose']=purpose1 
   return render(request,'analyze.html',params)
-  
-
-    
-  
-  
+ 

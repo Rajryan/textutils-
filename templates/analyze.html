@@ -7,11 +7,18 @@
   </head>
   <body>
     <div class="container">
-        <h5>Analyzed Text - <span>{{purpose}}</span></h5>
-    
-      <div class="jumbotron">
-        <pre>{{analyzed}}</pre>
-      </div>
+        <div class="card text-center">
+  <div class="card-header bg-success">Text Analyzed Successfully
+  </div>
+  <div class="card-body">
+   
+    <p class="card-text">{{analyzed}}</p>
+   
+  </div>
+  <div class="card-footer text-muted" name="characters">
+    {{charstotal}}
+  </div>
+</div>
       
   <a href="/" class=" btn btn-success">back to home</a>
       
